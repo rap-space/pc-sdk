@@ -1,57 +1,40 @@
-# Just脚手架升级到aop脚手架
+# qnui 升级 aop-ui
+
+aop-ui 是1688开放平台在阿里巴巴自身实践过两年的组件库 next 1.x 之上，集成了工作台主题之后，发布的组件库。包含isv开发过程中所需的绝大部分组件，极大提升开发效率。
+
+## 注意
+1. 由于 qnui 是基于 next0.x 搭建，aop-ui 是基于 next1.x 搭建，因此会有一些breaking change，如果跑不起来，请对照文档进行修改。（这种应该很少，应用至少是可以跑起来的）
+2. 一定要把 qnui 依赖清理干净，可以先 `npm uninstall --save qnui`，然后 `aop dev`，根据报错位置来替换 
 
 ## 步骤
-1. 如果没安装 aop-cli, 请先安装 aop-cli。
+1. **安装 aop-ui 和 peerDependency: moment**
 
-    > 要求 Node >= 7，可以使用 [nvm](https://github.com/creationix/nvm) 解决机器上多 node 版本共存的问题。
+    `npm install --save moment`
 
-2. `npm install aop-cli -g`
+    `npm install --save aop-ui`
 
-    aop-cli 是由开放平台出品的专门为isv开发者提供的脚手架工具，暂时提供3个命令
-    1. `aop init myapp` 初始化工程目录和示例代码
-    2. `aop dev` 启动开发
-    3. `aop build` 打包代码
+2. **修改配置**
+   在 custom.config.js 中修改原来的 qnui 为 aop-ui
+   如果没有 custom.config.js 文件，请参考
+   《just脚手架升级到aop脚手架》
+   
+     ![](https://img.alicdn.com/tfs/TB1xQ66nb9YBuNjy0FgXXcxcXXa-1090-758.png)
 
-3. 修改 package.json
-   ![](media/15223215602907/15223219359947.jpg)
+3. **引入scss文件**
+    在 common/index.scss 下引入主题包
+     `@import '~aop-ui/index.scss'`
+    或者在其他文件中引入到工程代码里
+    
+     ![](https://img.alicdn.com/tfs/TB1jlH6nb9YBuNjy0FgXXcxcXXa-1246-1250.png)
 
-4. 在工程目录下添加 custom.config.js，并写入如下内容
+4. **全局替换 qnui**
+    将 qnui 替换成 aop-ui 即可，组件引用路径都不用调整，注意一定要把qnui清理干净，否则可能会有冲突
 
-    ```javascript
-    // webpack 自定义配置文件，请勿删除！
-    module.exports = function (webpack, context) {
-        return {
-            loaders: {}, // 配置loader 
-            plugins: [], // 插件
-            uglify: true, // 是否压缩
-            externals: {
-                'react': 'var window.React',
-                'react-dom': 'var window.ReactDOM'
-            }, // 需要从外部CND引入的JS包
-            polyfill: false, // 打包是否包括 polyfill
-            dll: ['qnui', 'react-router'], // 是否启动DllPlugin
-            proxy: {} // 配置代理
-        }
-    }
-    ```
-    ![](media/15223215602907/15223998782123.jpg)
+5. **启动看是否已经修改**
 
+    `aop dev`
 
-5. 执行 `aop cert`，安装 https 证书
-6. 执行 `aop dev`，会直接打开宿主环境页面。
-![](media/15223215602907/15223233170658.jpg)
-
-7. 开始开发吧！
-<br>
-<br>
-
-
----
-
-**有任何问题，请加钉钉群 21738069 
-联系 @赵泰 @刘甲**
-
-![](media/15223215602907/15223247965174.jpg)
+    ![](https://img.alicdn.com/tfs/TB1dVkOnmtYBeNjSspkXXbU8VXa-701-539.png)
 
 
 
