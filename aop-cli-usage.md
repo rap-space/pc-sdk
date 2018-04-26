@@ -1,3 +1,10 @@
+---
+order: 1
+title: Aop Cli
+groupOrder: 1
+group: 快速上手
+---
+
 ## Aop Cli
 
 Create ISV Plugin with no build configuration.

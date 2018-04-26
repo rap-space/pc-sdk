@@ -1,3 +1,10 @@
+---
+order: 2
+title: Just脚手架升级到aop脚手架
+groupOrder: 1
+group: 快速上手
+---
+
 # Just脚手架升级到aop脚手架
 
 ## 步骤

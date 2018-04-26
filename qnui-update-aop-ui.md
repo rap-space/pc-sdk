@@ -1,3 +1,10 @@
+---
+order: 3
+title: qnui 升级 aop-ui
+groupOrder: 1
+group: 快速上手
+---
+
 # qnui 升级 aop-ui
 
 aop-ui 是1688开放平台在阿里巴巴自身实践过两年的组件库 next 1.x 之上，集成了工作台主题之后，发布的组件库。包含isv开发过程中所需的绝大部分组件，极大提升开发效率。
