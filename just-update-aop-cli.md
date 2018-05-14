@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 title: Just脚手架升级到aop脚手架
 groupOrder: 1
 group: 快速上手
@@ -28,7 +28,7 @@ group: 快速上手
     // webpack 自定义配置文件，请勿删除！
     module.exports = function (webpack, context) {
         return {
-            loaders: {}, // 配置loader 
+            loaders: {}, // 配置loader
             plugins: [], // 插件
             uglify: true, // 是否压缩
             externals: {
@@ -55,7 +55,7 @@ group: 快速上手
 
 ---
 
-**有任何问题，请加钉钉群 21738069 
+**有任何问题，请加钉钉群 21738069
 联系 @赵泰 @刘甲**
 
 ![](media/15223215602907/15223247965174.jpg)
